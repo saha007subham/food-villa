@@ -1,10 +1,10 @@
-import Header from "./components/Header/Header";
+import AppLayout from "./app-layout/AppLayout";
 import "./index.css";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <AppLayout />
     </div>
   );
 }
