@@ -1,21 +1,51 @@
 import React from "react";
 import "./Cards.css";
+import { IMG_CDN_URL } from "../../config";
+import { FaRegStar } from "react-icons/fa";
 
-const Cards = ({ name, cloudinaryImageId }) => {
+const Cards = ({
+  name,
+  cuisines,
+  avgRating,
+  deliveryTime,
+  costForTwoString,
+  cloudinaryImageId,
+}) => {
   // console.log(name);
   return (
     <div className="cards">
-      <img
-        src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          cloudinaryImageId
-        }
-        alt="food-img"
-        className="card-img"
-      />
-      <h2>{name}</h2>
-      <h3>sdfvfv</h3>
-      <h4>lglglgl</h4>
+      <div>
+        <img
+          src={IMG_CDN_URL + cloudinaryImageId}
+          alt="food-img"
+          className="card-img"
+        />
+      </div>
+      <div>
+        <p className="card-title">{name}</p>
+        <p className="card-p">{cuisines.join(", ")}</p>
+      </div>
+      <div className="rating-div">
+        <div
+          style={{
+            display: "flex",
+            backgroundColor: "#db7c38",
+            color: "white",
+            padding: "2px 6px",
+          }}
+        >
+          <span className="rating-star">
+            <FaRegStar />
+          </span>
+          <p className="rating-p">{avgRating}</p>
+        </div>
+        <div style={{ backgroundColor: "#f2ecec", padding: "2px 6px" }}>
+          <p style={{ fontSize: "13px", margin: "0px" }}>{deliveryTime} mins</p>
+        </div>
+        <div style={{ padding: "2px 6px", backgroundColor: "#f2f2f2" }}>
+          <p style={{ fontSize: "13px", margin: "0px" }}>{costForTwoString}</p>
+        </div>
+      </div>
     </div>
   );
 };
