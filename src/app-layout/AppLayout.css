@@ -1,0 +1,15 @@
+.total_restro-h2{
+    padding: 0px 50px
+}
+
+.main__card-div{
+    padding-left: 30px;
+    margin-bottom: 50px;
+}
+
+.main__card-div > div{
+    padding: 0px 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 25px;
+}
