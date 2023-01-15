@@ -18,12 +18,15 @@ const AppLayout = () => {
           rowGap: "25px",
         }}
       >
-        <Cards data={retroData[0]} />
+        {retroData.map((item, index) => {
+          return <Cards {...item} key={index} />;
+        })}
+        {/* <Cards data={retroData[0]} />
         <Cards data={retroData[1]} />
         <Cards data={retroData[2]} />
         <Cards data={retroData[3]} />
         <Cards data={retroData[4]} />
-        <Cards data={retroData[5]} />
+        <Cards data={retroData[5]} /> */}
       </div>
     </>
   );
