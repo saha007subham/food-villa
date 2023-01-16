@@ -7,11 +7,11 @@ import "./AppLayout.css";
 const AppLayout = () => {
   return (
     <>
+      // Header
       <Header />
       <div className="total_restro-h2">
         <h2>20 Restaurants</h2>
       </div>
-
       {/* Restaurant Cards Sections */}
       <div className="main__card-div">
         <div>

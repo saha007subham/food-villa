@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import Logo from "../../assets/images.png";
+import { FaSearch } from "react-icons/fa";
 
 const Header = () => {
+  const [search, setSearch] = useState("");
+  console.log(search);
   return (
     <div className="header-div">
       <div>
-        <img src={Logo} className="logo" />
+        <img src={Logo} className="logo" alt="logo" />
+      </div>
+      <div className="input-search-div">
+        <FaSearch className="input-search-icon" />
+        <input
+          placeholder="Search"
+          className="input-search"
+          type="text"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
       </div>
       <div className="header__right-div">
         <p className="cursor">Offers</p>
