@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import Logo from "../../assets/images.png";
 import { FaSearch } from "react-icons/fa";
 
-const Header = () => {
-  const [search, setSearch] = useState("");
-  console.log(search);
+const Header = ({ retroData }) => {
   return (
     <div className="header-div">
       <div>
@@ -18,7 +16,7 @@ const Header = () => {
           className="input-search"
           type="text"
           onChange={(e) => {
-            setSearch(e.target.value);
+            retroData(e.target.value);
           }}
         />
       </div>
