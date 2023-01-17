@@ -13,6 +13,7 @@ const AppLayout = () => {
 
   return (
     <>
+      {/* Header Section */}
       <Header retroData={handleInput} />
       <div className="total_restro-h2">
         <h2>20 Restaurants</h2>
