@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Cards from "../components/Cards";
 import { retroData } from "../data/data";
@@ -6,10 +6,25 @@ import "./AppLayout.css";
 
 const AppLayout = () => {
   const [search, setSearch] = useState("");
+  const [restroList, setRestroList] = useState(retroData);
 
   const handleInput = (searchText) => {
     setSearch(searchText);
   };
+
+  useEffect(() => {
+    getRestaurants();
+  }, []);
+
+  async function getRestaurants() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.71693713897372&lng=88.43584332615137&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+    setRestroList(json?.data?.cards[2]?.data?.data?.cards);
+    console.log(json);
+  }
 
   return (
     <>
@@ -21,7 +36,7 @@ const AppLayout = () => {
       {/* Restaurant Cards Sections */}
       <div className="main__card-div">
         <div>
-          {retroData
+          {restroList
             .filter((val) => {
               if (search === "") {
                 return val;
