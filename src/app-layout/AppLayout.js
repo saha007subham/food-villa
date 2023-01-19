@@ -23,7 +23,6 @@ const AppLayout = () => {
 
     const json = await data.json();
     setRestroList(json?.data?.cards[2]?.data?.data?.cards);
-    console.log(json);
   }
 
   return (
@@ -47,7 +46,7 @@ const AppLayout = () => {
               }
             })
             .map((item, index) => {
-              return <Cards {...item} key={index} />;
+              return <Cards {...item.data} key={index} />;
             })}
         </div>
       </div>
