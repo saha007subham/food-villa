@@ -23,7 +23,7 @@ const Cards = ({
       </div>
       <div>
         <p className="card-title">{name}</p>
-        <p className="card-p">{cuisines.join(", ")}</p>
+        <p className="card-p">{cuisines?.join(", ")}</p>
       </div>
       <div className="rating-div">
         <div

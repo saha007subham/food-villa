@@ -25,6 +25,8 @@ const AppLayout = () => {
     setRestroList(json?.data?.cards[2]?.data?.data?.cards);
   }
 
+  // console.log(restroList);
+
   return (
     <>
       {/* Header Section */}
@@ -36,11 +38,11 @@ const AppLayout = () => {
       <div className="main__card-div">
         <div>
           {restroList
-            .filter((val) => {
+            ?.filter((val) => {
               if (search === "") {
                 return val;
               } else if (
-                val.name.toLowerCase().includes(search.toLowerCase())
+                val.name?.toLowerCase().includes(search.toLowerCase())
               ) {
                 return val;
               }
