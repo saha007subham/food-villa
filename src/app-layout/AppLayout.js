@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Cards from "../components/Cards";
-import { retroData } from "../data/data";
+import Shimmer from "../components/Shimmer";
 import "./AppLayout.css";
 
 const AppLayout = () => {
   const [search, setSearch] = useState("");
-  const [restroList, setRestroList] = useState(retroData);
+  const [filteredRestro, setFilterRestro] = useState([]);
+  const [allRestro, setAllRestro] = useState([]);
 
   const handleInput = (searchText) => {
     setSearch(searchText);
@@ -22,12 +23,15 @@ const AppLayout = () => {
     );
 
     const json = await data.json();
-    setRestroList(json?.data?.cards[2]?.data?.data?.cards);
+    setAllRestro(json?.data?.cards[2]?.data?.data?.cards);
+    setFilterRestro(json?.data?.cards[2]?.data?.data?.cards);
   }
 
-  // console.log(restroList);
+  // if (filteredRestro === 0) return <h1>No Restro match your filter..!!</h1>;
 
-  return (
+  return allRestro === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       {/* Header Section */}
       <Header retroData={handleInput} />
@@ -37,14 +41,14 @@ const AppLayout = () => {
       {/* Restaurant Cards Sections */}
       <div className="main__card-div">
         <div>
-          {restroList
+          {filteredRestro
             ?.filter((val) => {
               if (search === "") {
-                return val;
+                return val.data;
               } else if (
-                val.name?.toLowerCase().includes(search.toLowerCase())
+                val.data.name?.toLowerCase().includes(search.toLowerCase())
               ) {
-                return val;
+                return val.data;
               }
             })
             .map((item, index) => {
