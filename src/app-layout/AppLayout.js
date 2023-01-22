@@ -27,9 +27,7 @@ const AppLayout = () => {
     setFilterRestro(json?.data?.cards[2]?.data?.data?.cards);
   }
 
-  // if (filteredRestro === 0) return <h1>No Restro match your filter..!!</h1>;
-
-  return allRestro === 0 ? (
+  return allRestro?.length === 0 ? (
     <Shimmer />
   ) : (
     <>
