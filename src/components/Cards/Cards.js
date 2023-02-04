@@ -11,7 +11,7 @@ const Cards = ({
   costForTwoString,
   cloudinaryImageId,
 }) => {
-  // console.log(name);
+  console.log(name);
   return (
     <div className="cards">
       <div>
