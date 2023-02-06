@@ -23,13 +23,13 @@ const AppLayout = () => {
     );
 
     const json = await data.json();
-    // console.log(json?.data?.cards[1]);
+    // console.log(json?.data?.cards[1]?.data?.data?.cards);
     setAllRestro(json?.data?.cards[1]?.data?.data?.cards);
     setFilterRestro(json?.data?.cards[1]?.data?.data?.cards);
   }
 
   // console.log(allRestro);
-  // console.log(filteredRestro);
+  console.log(filteredRestro);
 
   return allRestro?.length === 0 ? (
     <Shimmer />
@@ -48,13 +48,14 @@ const AppLayout = () => {
               if (search === "") {
                 return val.data;
               } else if (
-                val.data.name?.toLowerCase().includes(search.toLowerCase())
+                val?.data.name?.toLowerCase().includes(search.toLowerCase())
               ) {
                 return val.data;
               }
             })
             .map((item, index) => {
-              return <Cards {...item.data} key={index} />;
+              // console.log(item);
+              return <Cards {...item?.data} key={index} />;
             })}
         </div>
       </div>
