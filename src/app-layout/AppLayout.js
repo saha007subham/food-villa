@@ -23,13 +23,12 @@ const AppLayout = () => {
     );
 
     const json = await data.json();
-    // console.log(json?.data?.cards[1]?.data?.data?.cards);
-    setAllRestro(json?.data?.cards[1]?.data?.data?.cards);
-    setFilterRestro(json?.data?.cards[1]?.data?.data?.cards);
+    setAllRestro(json?.data?.cards[2]?.data?.data?.cards);
+    setFilterRestro(json?.data?.cards[2]?.data?.data?.cards);
   }
 
   // console.log(allRestro);
-  console.log(filteredRestro);
+  // console.log(filteredRestro);
 
   return allRestro?.length === 0 ? (
     <Shimmer />
