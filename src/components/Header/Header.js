@@ -26,6 +26,9 @@ const Header = ({ retroData }) => {
         <p className="cursor">Contact Us</p>
         <p className="cursor">Cart</p>
       </div>
+      <div>
+        <button className="login_btn">LogIn</button>
+      </div>
     </div>
   );
 };

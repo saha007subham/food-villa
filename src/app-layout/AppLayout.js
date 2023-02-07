@@ -30,6 +30,8 @@ const AppLayout = () => {
   // console.log(allRestro);
   // console.log(filteredRestro);
 
+  // if (filteredRestro?.length === 0) return <h1>No Restaurant Found</h1>;
+
   return allRestro?.length === 0 ? (
     <Shimmer />
   ) : (
@@ -37,7 +39,7 @@ const AppLayout = () => {
       {/* Header Section */}
       <Header retroData={handleInput} />
       <div className="total_restro-h2">
-        <h2>20 Restaurants</h2>
+        <h2>{allRestro.length} Restaurants</h2>
       </div>
       {/* Restaurant Cards Sections */}
       <div className="main__card-div">
