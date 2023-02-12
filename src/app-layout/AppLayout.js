@@ -24,8 +24,8 @@ const AppLayout = () => {
 
     const json = await data.json();
     // console.log(json);
-    setAllRestro(json?.data?.cards[1]?.data?.data?.cards);
-    setFilterRestro(json?.data?.cards[1]?.data?.data?.cards);
+    setAllRestro(json?.data?.cards[2]?.data?.data?.cards);
+    setFilterRestro(json?.data?.cards[2]?.data?.data?.cards);
   }
 
   // console.log(allRestro);
@@ -40,7 +40,7 @@ const AppLayout = () => {
       {/* Header Section */}
       <Header retroData={handleInput} />
       <div className="total_restro-h2">
-        <h2>20 Restaurants</h2>
+        <h2>{allRestro.length} Restaurants</h2>
       </div>
       {/* Restaurant Cards Sections */}
       <div className="main__card-div">
