@@ -9,8 +9,8 @@ const Shimmer = () => {
       <div className="shimmer-div">
         {Array(10)
           .fill("")
-          .map((div) => (
-            <div className="shimmer-card"></div>
+          .map((div, idx) => (
+            <div className="shimmer-card" key={idx}></div>
           ))}
       </div>
     </>
