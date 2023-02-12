@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import Logo from "../../assets/images.png";
 import { FaSearch } from "react-icons/fa";
 
 const Header = ({ retroData }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const loggedInUser = () => {
+    // make a API call
+
+    return true;
+  };
+
   return (
     <div className="header-div">
       <div>
@@ -26,8 +33,16 @@ const Header = ({ retroData }) => {
         <p className="cursor">Contact Us</p>
         <p className="cursor">Cart</p>
       </div>
-      <div>
-        <button className="login_btn">LogIn</button>
+      <div style={{ width: "6%" }}>
+        {isLoggedIn ? (
+          <button className="login_btn" onClick={() => setIsLoggedIn(false)}>
+            LogOut
+          </button>
+        ) : (
+          <button className="login_btn" onClick={() => setIsLoggedIn(true)}>
+            LogIn
+          </button>
+        )}
       </div>
     </div>
   );
