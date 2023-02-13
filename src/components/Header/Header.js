@@ -2,14 +2,10 @@ import React, { useState } from "react";
 import "./Header.css";
 import Logo from "../../assets/images.png";
 import { FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Header = ({ retroData }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const loggedInUser = () => {
-    // make a API call
-
-    return true;
-  };
 
   return (
     <div className="header-div">
@@ -29,7 +25,13 @@ const Header = ({ retroData }) => {
       </div>
       <div className="header__right-div">
         <p className="cursor">Offers</p>
-        <p className="cursor">About</p>
+
+        <p className="cursor">
+          <Link to="/about" className="link-style">
+            About
+          </Link>
+        </p>
+
         <p className="cursor">Contact Us</p>
         <p className="cursor">Cart</p>
       </div>
