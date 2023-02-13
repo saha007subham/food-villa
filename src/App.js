@@ -1,7 +1,8 @@
 import "./index.css";
 import AppLayout from "./app-layout/AppLayout";
 import About from "./components/About";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Error from "./components/ErrorPage";
+import { createBrowserRouter } from "react-router-dom";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ export const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
   },
   {
     path: "/about",
