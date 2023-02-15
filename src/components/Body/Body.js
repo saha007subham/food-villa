@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Cards from "../Cards";
 import Shimmer from "../Shimmer";
 import { FaSearch } from "react-icons/fa";
+import "./Body.css";
 
 const Body = () => {
   const [search, setSearch] = useState("");

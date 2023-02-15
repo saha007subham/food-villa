@@ -1,13 +1,15 @@
 import "./index.css";
-import AppLayout from "./app-layout/AppLayout";
 import About from "./components/About";
 import Error from "./components/ErrorPage";
 import { createBrowserRouter } from "react-router-dom";
+import Header from "./components/Header";
+import Body from "./components/Body/Body";
 
 function App() {
   return (
     <div className="App">
-      <AppLayout />
+      <Header />
+      <Body />
     </div>
   );
 }
