@@ -9,7 +9,9 @@ const Header = () => {
   return (
     <div className="header-div">
       <div>
-        <img src={Logo} className="logo" alt="logo" />
+        <Link to="/">
+          <img src={Logo} className="logo" alt="logo" />
+        </Link>
       </div>
 
       <div className="header__right-div">
@@ -21,7 +23,11 @@ const Header = () => {
           </Link>
         </p>
 
-        <p className="cursor">Contact Us</p>
+        <p className="cursor">
+          <Link to="/contact" className="link-style">
+            Contact Us
+          </Link>
+        </p>
         <p className="cursor">Cart</p>
       </div>
       <div style={{ width: "6%" }}>
