@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "./Header.css";
 import Logo from "../../assets/images.png";
-import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Header = ({ retroData }) => {
+const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
@@ -12,17 +11,7 @@ const Header = ({ retroData }) => {
       <div>
         <img src={Logo} className="logo" alt="logo" />
       </div>
-      <div className="input-search-div">
-        <FaSearch className="input-search-icon" />
-        <input
-          placeholder="Search"
-          className="input-search"
-          type="text"
-          onChange={(e) => {
-            retroData(e.target.value);
-          }}
-        />
-      </div>
+
       <div className="header__right-div">
         <p className="cursor">Offers</p>
 

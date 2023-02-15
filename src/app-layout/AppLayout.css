@@ -1,5 +1,8 @@
 .total_restro-h2{
-    padding: 0px 50px
+    padding: 0px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .main__card-div{
@@ -12,4 +15,18 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     row-gap: 25px;
+}
+
+.search-tab{
+    border: 1px solid gray;
+    width: 35%;
+    border-radius: 7px;
+    padding-left: 10px;
+}
+
+.input-search-icon{
+    color: gray;
+    position: absolute;
+    bottom: 499px;
+    right: 60px;
 }

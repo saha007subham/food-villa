@@ -17,10 +17,12 @@ export const appRouter = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <Error />,
-  },
-  {
-    path: "/about",
-    element: <About />,
+    children: [
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ],
   },
 ]);
 
