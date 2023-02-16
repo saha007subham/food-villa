@@ -3,6 +3,7 @@ import Cards from "../Cards";
 import Shimmer from "../Shimmer";
 import { FaSearch } from "react-icons/fa";
 import "./Body.css";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [search, setSearch] = useState("");
@@ -20,8 +21,8 @@ const Body = () => {
 
     const json = await data.json();
     // console.log(json);
-    setAllRestro(json?.data?.cards[2]?.data?.data?.cards);
-    setFilterRestro(json?.data?.cards[2]?.data?.data?.cards);
+    setAllRestro(json?.data?.cards[1]?.data?.data?.cards);
+    setFilterRestro(json?.data?.cards[1]?.data?.data?.cards);
   }
 
   return allRestro?.length === 0 ? (
@@ -30,7 +31,7 @@ const Body = () => {
     <>
       <div className="total_restro-h2">
         <div>
-          <h2>{allRestro.length} Restaurants</h2>
+          <h2>{allRestro?.length} Restaurants</h2>
         </div>
 
         <div className="search-tab">
@@ -57,8 +58,12 @@ const Body = () => {
                 return val.data;
               }
             })
-            .map((item, index) => {
-              return <Cards {...item?.data} key={index} />;
+            .map((item) => {
+              return (
+                <Link to={"/restaurant/" + item.data.id} key={item.data.id}>
+                  <Cards {...item?.data} />
+                </Link>
+              );
             })}
         </div>
       </div>
