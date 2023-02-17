@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Body from "./components/Body/Body";
 import Contact from "./components/Contact/Contact";
 import RestrauntMenu from "./components/RestrauntMenu/RestrauntMenu";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -29,6 +30,12 @@ export const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        children: [
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: "/contact",

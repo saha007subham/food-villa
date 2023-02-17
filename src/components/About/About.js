@@ -1,3 +1,6 @@
+import { Link, Outlet } from "react-router-dom";
+import Profile from "../Profile";
+
 const About = () => {
   return (
     <div>
@@ -7,6 +10,11 @@ const About = () => {
         minutes, so you go ahead and book one, just for it to say, “Oh yeah no,
         it's really 30 minutes.” Yeah it's a hard problem.
       </p>
+
+      <Outlet />
+      <Link to="profile">
+        <Profile />
+      </Link>
     </div>
   );
 };

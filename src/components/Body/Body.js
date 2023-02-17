@@ -20,9 +20,9 @@ const Body = () => {
     );
 
     const json = await data.json();
-    // console.log(json);
-    setAllRestro(json?.data?.cards[1]?.data?.data?.cards);
-    setFilterRestro(json?.data?.cards[1]?.data?.data?.cards);
+    // console.log(json.data.cards[0].data.data.cards);
+    setAllRestro(json?.data?.cards[0]?.data?.data?.cards);
+    setFilterRestro(json?.data?.cards[0]?.data?.data?.cards);
   }
 
   return allRestro?.length === 0 ? (
