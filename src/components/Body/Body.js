@@ -21,8 +21,8 @@ const Body = () => {
 
     const json = await data.json();
     // console.log(json.data.cards[0].data.data.cards);
-    setAllRestro(json?.data?.cards[0]?.data?.data?.cards);
-    setFilterRestro(json?.data?.cards[0]?.data?.data?.cards);
+    setAllRestro(json?.data?.cards[2]?.data?.data?.cards);
+    setFilterRestro(json?.data?.cards[2]?.data?.data?.cards);
   }
 
   return allRestro?.length === 0 ? (
