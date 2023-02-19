@@ -9,6 +9,7 @@ class About extends Component {
   }
 
   componentDidMount() {
+    // Best place to make API call
     console.log("componet did mount...");
   }
 
