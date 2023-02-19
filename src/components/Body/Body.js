@@ -4,6 +4,7 @@ import Shimmer from "../Shimmer";
 import { FaSearch } from "react-icons/fa";
 import "./Body.css";
 import { Link } from "react-router-dom";
+import useOnline from "../../utils/useOnline";
 
 const Body = () => {
   const [search, setSearch] = useState("");
@@ -23,6 +24,12 @@ const Body = () => {
     // console.log(json.data.cards[0].data.data.cards);
     setAllRestro(json?.data?.cards[2]?.data?.data?.cards);
     setFilterRestro(json?.data?.cards[2]?.data?.data?.cards);
+  }
+
+  const online = useOnline();
+
+  if (!online) {
+    return <h1>Offline, please check your internet connection..!!!</h1>;
   }
 
   return allRestro?.length === 0 ? (
