@@ -28,6 +28,13 @@ const Header = () => {
             Contact Us
           </Link>
         </p>
+
+        <p className="cursor">
+          <Link to="/instamart" className="link-style">
+            Instamart
+          </Link>
+        </p>
+
         <p className="cursor">Cart</p>
       </div>
       <div style={{ width: "6%" }}>
