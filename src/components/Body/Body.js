@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Cards from "../Cards";
 import Shimmer from "../Shimmer";
 import { FaSearch } from "react-icons/fa";
-import "./Body.css";
+// import "./Body.css";
 import { Link } from "react-router-dom";
 import useOnline from "../../utils/useOnline";
 
@@ -22,8 +22,8 @@ const Body = () => {
 
     const json = await data.json();
     // console.log(json.data);
-    setAllRestro(json?.data?.cards[2]?.data?.data?.cards);
-    setFilterRestro(json?.data?.cards[2]?.data?.data?.cards);
+    setAllRestro(json?.data?.cards[0]?.data?.data?.cards);
+    setFilterRestro(json?.data?.cards[0]?.data?.data?.cards);
   }
 
   const online = useOnline();
@@ -38,7 +38,7 @@ const Body = () => {
     <>
       <div className="total_restro-h2">
         <div>
-          <h2>{allRestro?.length} Restaurants</h2>
+          <h2 class="text-blue-500	">{allRestro?.length} Restaurants</h2>
         </div>
 
         <div className="search-tab">
