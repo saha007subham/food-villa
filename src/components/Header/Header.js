@@ -7,14 +7,14 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div className="header-div">
+    <div className="flex">
       <div>
         <Link to="/">
-          <img src={Logo} className="logo" alt="logo" />
+          <img src={Logo} className="h-24" alt="logo" />
         </Link>
       </div>
 
-      <div className="header__right-div">
+      <div className="flex">
         <p className="cursor">Offers</p>
 
         <p className="cursor">
