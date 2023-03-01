@@ -13,7 +13,7 @@ const Cards = ({
 }) => {
   // console.log(name);
   return (
-    <div className="cards">
+    <div className="w-[350px] p-2 m-2 shadow-lg bg-pink-50">
       <div>
         <img
           src={IMG_CDN_URL + cloudinaryImageId}

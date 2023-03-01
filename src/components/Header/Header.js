@@ -7,7 +7,7 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div className="flex justify-between px-4">
+    <div className="flex justify-between px-4 bg-pink-50">
       <div className="p-2">
         <Link to="/">
           <img src={Logo} className="h-12 " alt="logo" />

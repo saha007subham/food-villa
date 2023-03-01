@@ -41,11 +41,11 @@ const Body = () => {
           <h2 class="text-blue-500	">{allRestro?.length} Restaurants</h2>
         </div>
 
-        <div className="search-tab">
-          <FaSearch className="input-search-icon" />
+        <div className=" flex relative justify-center mb-3">
+          <FaSearch className="absolute right-[400px] top-[5px]" />
           <input
             placeholder="Search"
-            className="input-search"
+            className="w-[500px] border-solid border-2 border-sky-500 px-2"
             type="text"
             onChange={(e) => {
               setSearch(e.target.value);
@@ -53,26 +53,25 @@ const Body = () => {
           />
         </div>
       </div>
-      <div className="main__card-div">
-        <div>
-          {filteredRestro
-            ?.filter((val) => {
-              if (search === "") {
-                return val.data;
-              } else if (
-                val?.data.name?.toLowerCase().includes(search.toLowerCase())
-              ) {
-                return val.data;
-              }
-            })
-            .map((item) => {
-              return (
-                <Link to={"/restaurant/" + item.data.id} key={item.data.id}>
-                  <Cards {...item?.data} />
-                </Link>
-              );
-            })}
-        </div>
+
+      <div className="flex flex-wrap justify-center gap-10">
+        {filteredRestro
+          ?.filter((val) => {
+            if (search === "") {
+              return val.data;
+            } else if (
+              val?.data.name?.toLowerCase().includes(search.toLowerCase())
+            ) {
+              return val.data;
+            }
+          })
+          .map((item) => {
+            return (
+              <Link to={"/restaurant/" + item.data.id} key={item.data.id}>
+                <Cards {...item?.data} />
+              </Link>
+            );
+          })}
       </div>
     </>
   );
