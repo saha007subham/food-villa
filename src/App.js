@@ -8,8 +8,9 @@ import Contact from "./components/Contact/Contact";
 import RestrauntMenu from "./components/RestrauntMenu/RestrauntMenu";
 import Profile from "./components/Profile";
 // import Instamart from "./components/Instamart/Instamart";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/UserContext";
 
 // Chunking
 //Code Splitting
@@ -21,11 +22,21 @@ import Shimmer from "./components/Shimmer";
 const Instamart = lazy(() => import("./components/Instamart/Instamart"));
 
 function App() {
+  const [user, setUser] = useState({
+    name: "Subham",
+    email: "saha007subham@gmail.com",
+  });
   return (
-    <div className="App">
+    <UserContext.Provider
+      value={{
+        user: user,
+      }}
+    >
+      {/* <div className="App"> */}
       <Header />
       <Outlet />
-    </div>
+      {/* </div> */}
+    </UserContext.Provider>
   );
 }
 

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 // import "./Header.css";
 import Logo from "../../assets/images.png";
 import { Link } from "react-router-dom";
+import UserContext from "../../utils/UserContext";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const { user } = useContext(UserContext);
 
   return (
     <div className="flex justify-between px-4 bg-pink-50">
@@ -38,6 +41,9 @@ const Header = () => {
         </p>
 
         <p className="cursor px-3 cursor-pointer hover:text-orange-400">Cart</p>
+      </div>
+      <div>
+        <p>{user.name}</p>
       </div>
       <div style={{ width: "6%" }} className="py-4">
         {isLoggedIn ? (
