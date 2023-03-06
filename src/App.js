@@ -30,6 +30,7 @@ function App() {
     <UserContext.Provider
       value={{
         user: user,
+        setUser: setUser,
       }}
     >
       {/* <div className="App"> */}

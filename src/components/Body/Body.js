@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Cards from "../Cards";
 import Shimmer from "../Shimmer";
 import { FaSearch } from "react-icons/fa";
 // import "./Body.css";
 import { Link } from "react-router-dom";
 import useOnline from "../../utils/useOnline";
+import UserContext from "../../utils/UserContext";
 
 const Body = () => {
   const [search, setSearch] = useState("");
   const [filteredRestro, setFilterRestro] = useState([]);
   const [allRestro, setAllRestro] = useState([]);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     getRestaurants();
@@ -22,8 +24,8 @@ const Body = () => {
 
     const json = await data.json();
     // console.log(json.data);
-    setAllRestro(json?.data?.cards[0]?.data?.data?.cards);
-    setFilterRestro(json?.data?.cards[0]?.data?.data?.cards);
+    setAllRestro(json?.data?.cards[2]?.data?.data?.cards);
+    setFilterRestro(json?.data?.cards[2]?.data?.data?.cards);
   }
 
   const online = useOnline();
@@ -50,6 +52,15 @@ const Body = () => {
             onChange={(e) => {
               setSearch(e.target.value);
             }}
+          />
+          <input
+            value={user.name}
+            onChange={(e) =>
+              setUser({
+                name: e.target.value,
+                email: "email@gmail.com",
+              })
+            }
           />
         </div>
       </div>
