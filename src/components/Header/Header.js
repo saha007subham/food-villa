@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 // import "./Header.css";
-import Logo from "../../assets/images.png";
+import Logo from "../../assets/2.png";
 import { Link } from "react-router-dom";
 import UserContext from "../../utils/UserContext";
 
