@@ -11,6 +11,9 @@ import Profile from "./components/Profile";
 import { lazy, Suspense, useState } from "react";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart/Cart";
 
 // Chunking
 //Code Splitting
@@ -27,17 +30,19 @@ function App() {
     email: "saha007subham@gmail.com",
   });
   return (
-    <UserContext.Provider
-      value={{
-        user: user,
-        setUser: setUser,
-      }}
-    >
-      {/* <div className="App"> */}
-      <Header />
-      <Outlet />
-      {/* </div> */}
-    </UserContext.Provider>
+    <Provider store={store}>
+      <UserContext.Provider
+        value={{
+          user: user,
+          setUser: setUser,
+        }}
+      >
+        {/* <div className="App"> */}
+        <Header />
+        <Outlet />
+        {/* </div> */}
+      </UserContext.Provider>
+    </Provider>
   );
 }
 
@@ -76,6 +81,10 @@ export const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

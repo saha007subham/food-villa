@@ -3,11 +3,15 @@ import React, { useState, useContext } from "react";
 import Logo from "../../assets/2.png";
 import { Link } from "react-router-dom";
 import UserContext from "../../utils/UserContext";
+import { useSelector } from "react-redux";
+import store from "../../utils/store";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const { user } = useContext(UserContext);
+
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="flex justify-between px-4 bg-pink-50">
@@ -39,8 +43,17 @@ const Header = () => {
             Instamart
           </Link>
         </p>
+        {/* <p className="cursor px-3 hover:text-orange-400">
+          <Link to="/cart" className="link-style">
+            Cart
+          </Link>
+        </p> */}
 
-        <p className="cursor px-3 cursor-pointer hover:text-orange-400">Cart</p>
+        <p className="cursor px-3 cursor-pointer hover:text-orange-400">
+          <Link to="/cart" className="link-style">
+            Cart - {cartItems.length} items
+          </Link>
+        </p>
       </div>
       <div>
         <p>{user.name}</p>
